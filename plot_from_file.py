@@ -1,6 +1,9 @@
 import numpy as np
 import matplotlib.pyplot as plt
-
+"""
+Function for get windows and payload from
+a file and plot the results 
+"""
 
 def open_file(file):
     f = file.read()
