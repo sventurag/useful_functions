@@ -22,14 +22,16 @@ class binary2text():
         self.int_array = np.fromfile(self.file, dtype = np.uint16) # asumes 16-bit data and create an integers array
         self.windowSize = 1030
 
-        
-        windowsNumbers = [self.int_array[x] for x in range(1,len(self.int_array), int(self.windowSize/2)) ] # create a list with the window numbers, byte 1 from each window
+       # create a list with the window numbers, byte 1 from each window  
+        windowsNumbers = [self.int_array[x] for x in range(1,len(self.int_array), int(self.windowSize/2)) ] 
         
         self.numberofWindows = len(windowsNumbers)
-        
-        payload = [self.int_array[x:x + 512] for x in range( 2,len(self.int_array), int(self.windowSize/2) ) ] # get the data from each window asumming a self.windowSize, payload[window][data]
-    
-        windows_and_channels = [ [ payload[i][ x:x + 32] for x in range(0,len(payload[i]),32)   ] for i in range(15)] # create a nested list from the payload, windows_and_channels[window][channel][sample]
+       # get the data from each window asumming a self.windowSize, payload[window][data] 
+        payload = [self.int_array[x:x + 512] for x in range( 2,len(self.int_array), int(self.windowSize/2) ) ]
+       
+       # create a nested list from the payload, windows_and_channels[window][channel][sample] 
+        windows_and_channels = [ [ payload[i][ x:x + 32] for x in range(0,len(payload[i]),32)   ] for i in range(15)] 
+
         self.data_by_channel = list()
         for i in range(len(windows_and_channels[0])): 
             self.data_by_channel.append( self.same_channel(i,15,windows_and_channels).tolist() ) 
