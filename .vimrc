@@ -127,5 +127,9 @@ let g:vimwiki_list = [
 		\]
 au BufRead,BufNewFile *.wiki set filetype=vimwiki
 :autocmd FileType vimwiki map d :VimwikiMakeDiaryNote
-
+" Map commands to compile C and Python scripts
+map <F8> :w <CR> :!gcc % && ./a.out <CR>
+map <F9> :w<CR>:!python3 %<CR>
+ 
+let g:vimwiki_autowriteall=1
 
