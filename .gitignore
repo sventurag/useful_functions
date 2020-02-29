@@ -8,3 +8,7 @@ filename.csv
 output.csv
 
 *.swo
+
+save.p
+
+test.csv
