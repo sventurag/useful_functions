@@ -2,3 +2,9 @@
 __pycache__/binary2text.cpython-36.pyc
 
 *.swp
+
+filename.csv
+
+output.csv
+
+*.swo
