@@ -4,10 +4,9 @@ import matplotlib
 matplotlib.use('Tkagg')
 import itertools
 import matplotlib.gridspec as gridspec
-from pylab import *
-import matplotlib.animation as animation
+#from pylab import *
+#import matplotlib.animation as animation
 import pandas as pd
-import os
 
 """
 Create a column per channel from list
